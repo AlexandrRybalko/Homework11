@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Homework11
 {
-    public class MyList<T> : IEnumerable
+    public class MyList<T> : IEnumerable<T>
     {
         public delegate void MyListHandler(T value);
         public event MyListHandler Notify;
@@ -93,7 +94,7 @@ namespace Homework11
                     break;
                 }
             }
-            Notify(node.Value);
+            Notify?.Invoke(node.Value);
         }
 
         public void RemoveAll(Node node)
@@ -181,6 +182,11 @@ namespace Homework11
         }
 
         public IEnumerator GetEnumerator()
+        {
+            return new MyListEnumerator<T>(this);
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             return new MyListEnumerator<T>(this);
         }

@@ -30,6 +30,7 @@ namespace Homework11
             {
                 Console.WriteLine(a);
             }
+            Console.WriteLine("============================");
             foreach (var a in myList2)
             {
                 Console.WriteLine(a);

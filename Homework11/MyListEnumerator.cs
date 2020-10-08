@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Homework11
 {
-    public class MyListEnumerator<T> : IEnumerator
+    public class MyListEnumerator<T> : IEnumerator<T>
     {
         private MyList<T> _myList;
         private int position;
@@ -14,6 +15,13 @@ namespace Homework11
         }
 
         public object Current => _myList[position].Value;
+
+        T IEnumerator<T>.Current => _myList[position].Value;
+
+        public void Dispose()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public bool MoveNext()
         {
