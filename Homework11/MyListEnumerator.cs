@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Homework11
 {
@@ -19,8 +18,7 @@ namespace Homework11
         T IEnumerator<T>.Current => _myList[position].Value;
 
         public void Dispose()
-        {
-            throw new System.NotImplementedException();
+        {           
         }
 
         public bool MoveNext()
