@@ -21,10 +21,11 @@ namespace Homework11
             myList2.Add(9);
 
             myList2.Notify += myList1.Add;
+            myList2.Filter(x => x % 2 == 0);          
 
-            myList2.Remove(1);
+            /*myList2.Remove(1);
             myList2.Remove(7);
-            myList2.Remove(5);
+            myList2.Remove(5);*/
 
             foreach (var a in myList1)
             {

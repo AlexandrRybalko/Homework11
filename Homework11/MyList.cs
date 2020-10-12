@@ -6,12 +6,23 @@ namespace Homework11
 {
     public class MyList<T> : IEnumerable<T>
     {
+        public delegate bool del(T value);
         public delegate void MyListHandler(T value);
         public event MyListHandler Notify;
 
         private Node Head { get; set; }
 
-
+        public void Filter(del f)
+        {
+            foreach(T node in this)
+            {
+                if (!f(node))
+                {
+                    Remove(node);
+                }
+            }
+        }
+        
         public void Add(T value)
         {
             if (Head == null)
