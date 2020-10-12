@@ -102,10 +102,10 @@ namespace Homework11
                             this[i - 1].Next = this[i + 1];
                         }
                     }
+                    Notify?.Invoke(node.Value);
                     break;
                 }
-            }
-            Notify?.Invoke(node.Value);
+            }            
         }
 
         public void RemoveAll(Node node)
